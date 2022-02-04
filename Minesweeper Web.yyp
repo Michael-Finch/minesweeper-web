@@ -1,5 +1,11 @@
 {
   "resources": [
+    {"id":{"name":"spr_buttonHard","path":"sprites/spr_buttonHard/spr_buttonHard.yy",},"order":2,},
+    {"id":{"name":"spr_buttonEasy","path":"sprites/spr_buttonEasy/spr_buttonEasy.yy",},"order":0,},
+    {"id":{"name":"obj_buttonEasy","path":"objects/obj_buttonEasy/obj_buttonEasy.yy",},"order":0,},
+    {"id":{"name":"obj_buttonMedium","path":"objects/obj_buttonMedium/obj_buttonMedium.yy",},"order":1,},
+    {"id":{"name":"spr_buttonMedium","path":"sprites/spr_buttonMedium/spr_buttonMedium.yy",},"order":1,},
+    {"id":{"name":"obj_buttonHard","path":"objects/obj_buttonHard/obj_buttonHard.yy",},"order":2,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
