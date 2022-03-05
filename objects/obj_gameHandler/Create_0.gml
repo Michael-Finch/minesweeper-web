@@ -29,6 +29,7 @@ while(minesPlaced < totalMines)
 		board[randColumn,randRow] = CELLTYPES.mine
 		minesPlaced++
 		
+		
 		//Update neighboring cells' adjacent mine count
 		up = false
 		down = false
@@ -46,22 +47,22 @@ while(minesPlaced < totalMines)
 		//Check Right
 		if(randColumn + 1 < columns)
 			right = true
-			
+		
 		//Increment valid neighbors
 		if(up)
-			adjacentMines[randColumn - 1,randRow] += 1
-		if(down)
-			adjacentMines[randColumn + 1,randRow] += 1
-		if(left)
 			adjacentMines[randColumn,randRow - 1] += 1
-		if(right)
+		if(down)
 			adjacentMines[randColumn,randRow + 1] += 1
+		if(left)
+			adjacentMines[randColumn - 1,randRow] += 1
+		if(right)
+			adjacentMines[randColumn + 1,randRow] += 1
 		if(up && left)
 			adjacentMines[randColumn - 1,randRow - 1] += 1
 		if(up && right)
-			adjacentMines[randColumn - 1,randRow + 1] += 1
-		if(down && left)
 			adjacentMines[randColumn + 1,randRow - 1] += 1
+		if(down && left)
+			adjacentMines[randColumn - 1,randRow + 1] += 1
 		if(down && right)
 			adjacentMines[randColumn + 1,randRow + 1] += 1
 	}

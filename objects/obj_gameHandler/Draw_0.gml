@@ -1,7 +1,7 @@
 /// @description Draw game
-for(i = 0; i < rows; ++i)
+for(i = 0; i < columns; ++i)
 {
-	for(j = 0; j < columns; ++j)
+	for(j = 0; j < rows; ++j)
 	{
 		//Draw in appropriate color
 		if(board[i,j] == CELLTYPES.hidden)
@@ -13,11 +13,11 @@ for(i = 0; i < rows; ++i)
 				draw_set_color(c_red)
 			else
 				draw_set_color(c_gray)
-		draw_rectangle(j*cellSize,i*cellSize,j*cellSize+cellSize,i*cellSize+cellSize,false)
+		draw_rectangle(i*cellSize,j*cellSize,i*cellSize+cellSize,j*cellSize+cellSize,false)
 		
 		//Draw outline
 		draw_set_color(c_dkgray)
-		draw_rectangle(j*cellSize,i*cellSize,j*cellSize+cellSize,i*cellSize+cellSize,true)
+		draw_rectangle(i*cellSize,j*cellSize,i*cellSize+cellSize,j*cellSize+cellSize,true)
 		
 		
 	}

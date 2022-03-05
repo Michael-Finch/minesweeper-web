@@ -13,12 +13,12 @@ show_debug_message("click detected at (" + string(clickX) + "," + string(clickY)
 //Reveal click cell if valid
 if((clickRow < rows) && (clickColumn < columns) && (clickRow >= 0) && (clickColumn >= 0))
 {
-	clickedCellType = board[clickRow,clickColumn]
+	clickedCellType = board[clickColumn,clickRow]
 	show_debug_message("corresponding cell (" + string(clickColumn) + "," + string(clickRow) + ")")
 	
 	//Reveal a hidden cell
 	if(clickedCellType == CELLTYPES.hidden)
-		board[clickRow,clickColumn] = CELLTYPES.revealed
+		board[clickColumn,clickRow] = CELLTYPES.revealed
 	//Game lost off cell is a mine
 	else if(clickedCellType == CELLTYPES.mine)
 		gameLost = true
