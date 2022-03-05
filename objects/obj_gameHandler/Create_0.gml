@@ -1,8 +1,9 @@
 /// @description Initialize
-rows = 9			//How many rows the board has
-columns = 9			//How many columns the board has
-totalMines = 10		//How many mines the board has
-flags = 0			//How many flags have been set
+cellSize = 10					//How large the cells are in pixels
+rows = global.rows				//How many rows the board has
+columns = global.columns		//How many columns the board has
+totalMines = global.totalMines	//How many mines the board has
+flags = 0						//How many flags have been set
 
 //Initialize an empty board
 //0 = hidden, 1 = revealed empty, 2 = mine
