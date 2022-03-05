@@ -18,5 +18,7 @@ for(i = 0; i < rows; ++i)
 		//Draw outline
 		draw_set_color(c_dkgray)
 		draw_rectangle(j*cellSize,i*cellSize,j*cellSize+cellSize,i*cellSize+cellSize,true)
+		
+		
 	}
 }
