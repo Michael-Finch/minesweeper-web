@@ -19,6 +19,8 @@ for(i = 0; i < columns; ++i)
 		draw_set_color(c_dkgray)
 		draw_rectangle(i*cellSize,j*cellSize,i*cellSize+cellSize,j*cellSize+cellSize,true)
 		
-		
+		//Draw adjacent mines if revealed
+		if(board[i,j] == CELLTYPES.revealed && adjacentMines[i,j] != 0)
+			draw_text(i*cellSize + cellSize/2,j*cellSize,string(adjacentMines[i,j]))
 	}
 }
