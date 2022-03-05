@@ -4,12 +4,14 @@ rows = global.rows				//How many rows the board has
 columns = global.columns		//How many columns the board has
 totalMines = global.totalMines	//How many mines the board has
 flags = 0						//How many flags have been set
+gameLost = false				//Whether or not the player has clicked a mine and lost
 
 //Initialize an empty board
 //0 = hidden, 1 = revealed empty, 2 = mine
 for(i = 0; i < rows*columns; ++i)
 {
 	board[i] = CELLTYPES.hidden
+	neighbors[i] = 0
 }
 
 //Seed board with mines

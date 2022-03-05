@@ -9,7 +9,10 @@ for(i = 0; i < rows; ++i)
 		else if(board[i * columns + j] == CELLTYPES.revealed)
 			draw_set_color(c_ltgray)
 		else if(board[i * columns + j] == CELLTYPES.mine)
-			draw_set_color(c_gray)
+			if(gameLost)
+				draw_set_color(c_red)
+			else
+				draw_set_color(c_gray)
 		draw_rectangle(j*cellSize,i*cellSize,j*cellSize+cellSize,i*cellSize+cellSize,false)
 		
 		//Draw outline
