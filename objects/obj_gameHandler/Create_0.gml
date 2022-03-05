@@ -8,10 +8,13 @@ gameLost = false				//Whether or not the player has clicked a mine and lost
 
 //Initialize an empty board
 //0 = hidden, 1 = revealed empty, 2 = mine
-for(i = 0; i < rows*columns; ++i)
+for(i = 0; i < rows; ++i)
 {
-	board[i] = CELLTYPES.hidden
-	neighbors[i] = 0
+	for(j = 0; j < columns; ++j)
+	{
+		board[i,j] = CELLTYPES.hidden
+		neighbors[i,j] = 0
+	}
 }
 
 //Seed board with mines
@@ -19,10 +22,11 @@ minesPlaced = 0
 while(minesPlaced < totalMines)
 {
 	//Pick a random cell and make it a mine if it is not already
-	rand = irandom(rows*columns - 1)
-	if(board[rand] != CELLTYPES.mine)
+	randRow = irandom(rows-1)
+	randColumn = irandom(columns-1)
+	if(board[randRow,randColumn] != CELLTYPES.mine)
 	{
-		board[rand] = CELLTYPES.mine
+		board[randRow,randColumn] = CELLTYPES.mine
 		minesPlaced++
 	}
 }

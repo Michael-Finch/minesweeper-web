@@ -4,11 +4,11 @@ for(i = 0; i < rows; ++i)
 	for(j = 0; j < columns; ++j)
 	{
 		//Draw in appropriate color
-		if(board[i * columns + j] == CELLTYPES.hidden)
+		if(board[i,j] == CELLTYPES.hidden)
 			draw_set_color(c_gray)
-		else if(board[i * columns + j] == CELLTYPES.revealed)
+		else if(board[i,j] == CELLTYPES.revealed)
 			draw_set_color(c_ltgray)
-		else if(board[i * columns + j] == CELLTYPES.mine)
+		else if(board[i,j] == CELLTYPES.mine)
 			if(gameLost)
 				draw_set_color(c_red)
 			else
