@@ -5,22 +5,13 @@ for(i = 0; i < columns; ++i)
 	{
 		//Draw in appropriate color
 		if(board[i,j] == CELLTYPES.hidden)
-			draw_set_color(c_gray)
+			draw_sprite(spr_cellHidden, 0, i*cellSize, j*cellSize)
 		else if(board[i,j] == CELLTYPES.revealed)
-			draw_set_color(c_ltgray)
+			draw_sprite(spr_cellRevealed, adjacentMines[i,j], i*cellSize, j*cellSize)
 		else if(board[i,j] == CELLTYPES.mine)
 			if(gameLost)
-				draw_set_color(c_red)
+				draw_sprite(spr_cellBomb, 0, i*cellSize, j*cellSize)
 			else
-				draw_set_color(c_gray)
-		draw_rectangle(i*cellSize,j*cellSize,i*cellSize+cellSize,j*cellSize+cellSize,false)
-		
-		//Draw outline
-		draw_set_color(c_dkgray)
-		draw_rectangle(i*cellSize,j*cellSize,i*cellSize+cellSize,j*cellSize+cellSize,true)
-		
-		//Draw adjacent mines if revealed
-		if(board[i,j] == CELLTYPES.revealed && adjacentMines[i,j] != 0)
-			draw_text(i*cellSize + cellSize/2,j*cellSize,string(adjacentMines[i,j]))
+				draw_sprite(spr_cellHidden, 0, i*cellSize, j*cellSize)
 	}
 }
