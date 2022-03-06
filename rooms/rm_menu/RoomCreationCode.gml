@@ -3,8 +3,10 @@ enum CELLTYPES
     hidden = 0,
     revealed = 1,
 	mine = 2,
+	hiddenFlagged = 3,
+	mineFlagged = 4,
 }
 
-global.rows = 9
-global.columns = 9
-global.totalMines = 10
+global.rows = 0
+global.columns = 0
+global.totalMines = 0

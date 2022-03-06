@@ -1,4 +1,4 @@
-/// @description Detect click
+/// @description Detect left click
 
 //Get click position on screen and offset
 clickX = device_mouse_x(0)
@@ -8,9 +8,9 @@ clickY = device_mouse_y(0)
 clickColumn = floor(clickX/cellSize)
 clickRow = floor(clickY/cellSize)
 
-show_debug_message("click detected at (" + string(clickX) + "," + string(clickY) + ")")
+show_debug_message("left click detected at (" + string(clickX) + "," + string(clickY) + ")")
 
-//Reveal click cell if valid
+//Check if a valid location is clicked
 if((clickRow < rows) && (clickColumn < columns) && (clickRow >= 0) && (clickColumn >= 0))
 {
 	//If this is the first click, seed the board with mines
