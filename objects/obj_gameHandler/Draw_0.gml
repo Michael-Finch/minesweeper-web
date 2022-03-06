@@ -3,7 +3,7 @@ for(i = 0; i < columns; ++i)
 {
 	for(j = 0; j < rows; ++j)
 	{
-		//Draw in appropriate color
+		//Draw appropriate sprite
 		if(board[i,j] == CELLTYPES.hidden)
 			draw_sprite(spr_cellHidden, 0, i*cellSize, j*cellSize)
 		else if(board[i,j] == CELLTYPES.revealed)
