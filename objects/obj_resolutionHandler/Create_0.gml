@@ -1,4 +1,4 @@
-base_width = 640;
-base_height = 480;
+base_width = 960;
+base_height = 720;
 width = base_width;
 height = base_height;

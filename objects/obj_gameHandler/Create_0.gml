@@ -1,5 +1,5 @@
 /// @description Initialize
-cellSize = 20					//How large the cells are in pixels
+cellSize = 32					//How large the cells are in pixels
 rows = global.rows				//How many rows the board has
 columns = global.columns		//How many columns the board has
 totalMines = global.totalMines	//How many mines the board has
