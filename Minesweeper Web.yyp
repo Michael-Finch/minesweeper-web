@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"spr_buttonHard","path":"sprites/spr_buttonHard/spr_buttonHard.yy",},"order":2,},
+    {"id":{"name":"obj_resolutionHandler","path":"objects/obj_resolutionHandler/obj_resolutionHandler.yy",},"order":4,},
     {"id":{"name":"obj_gameHandler","path":"objects/obj_gameHandler/obj_gameHandler.yy",},"order":3,},
     {"id":{"name":"spr_buttonEasy","path":"sprites/spr_buttonEasy/spr_buttonEasy.yy",},"order":0,},
     {"id":{"name":"obj_buttonEasy","path":"objects/obj_buttonEasy/obj_buttonEasy.yy",},"order":0,},
@@ -8,6 +9,7 @@
     {"id":{"name":"spr_buttonMedium","path":"sprites/spr_buttonMedium/spr_buttonMedium.yy",},"order":1,},
     {"id":{"name":"obj_buttonHard","path":"objects/obj_buttonHard/obj_buttonHard.yy",},"order":2,},
     {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},"order":1,},
+    {"id":{"name":"scale_canvas","path":"scripts/scale_canvas/scale_canvas.yy",},"order":0,},
     {"id":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},"order":0,},
   ],
   "Options": [
