@@ -17,12 +17,13 @@ camOffsetY = rows/2 * cellSize - view_hport[0] / 2
 camera_set_view_pos(view_camera[0], camOffsetX, camOffsetY);
 
 //Initialize an empty board
-//0 = hidden empty, 1 = revealed empty, 2 = mine, 3 = hidden flagged, 4 = mine flagged
+//0 = empty hidden, 1 = empty revealed, 2 = empty flagged
+//3 = mine hidden, 4 = mine revealed, 5 = mine flagged
 for(i = 0; i < columns; ++i)
 {
 	for(j = 0; j < rows; ++j)
 	{
-		board[i,j] = CELLTYPES.hidden
+		board[i,j] = CELLTYPES.emptyHidden
 		adjacentMines[i,j] = 0
 	}
 }

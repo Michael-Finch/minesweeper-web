@@ -1,10 +1,11 @@
 enum CELLTYPES
 {
-    hidden = 0,
-    revealed = 1,
-	mine = 2,
-	hiddenFlagged = 3,
-	mineFlagged = 4,
+    emptyHidden = 0,
+    emptyRevealed = 1,
+	emptyFlagged = 2,
+	mineHidden = 3,
+	mineRevealed = 4,
+	mineFlagged = 5,
 }
 
 global.rows = 0

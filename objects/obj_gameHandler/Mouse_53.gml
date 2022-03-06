@@ -26,9 +26,9 @@ if((clickRow < rows) && (clickColumn < columns) && (clickRow >= 0) && (clickColu
 			distanceColumn = abs(randColumn - clickColumn)
 			distanceRow = abs(randRow - clickRow)
 			//Do not place a mine within 1 tile of the initial click or on an already placed mine
-			if((distanceColumn > 1 || distanceRow > 1) && board[randColumn,randRow] != CELLTYPES.mine)
+			if((distanceColumn > 1 || distanceRow > 1) && board[randColumn,randRow] != CELLTYPES.mineHidden)
 			{
-				board[randColumn,randRow] = CELLTYPES.mine
+				board[randColumn,randRow] = CELLTYPES.mineHidden
 				minesPlaced++
 		
 				//Update neighboring cells' adjacent mine count
@@ -77,11 +77,15 @@ if((clickRow < rows) && (clickColumn < columns) && (clickRow >= 0) && (clickColu
 	show_debug_message("corresponding cell (" + string(clickColumn) + "," + string(clickRow) + ")")
 	
 	//Reveal a hidden cell
-	if(clickedCellType == CELLTYPES.hidden)
-		board[clickColumn,clickRow] = CELLTYPES.revealed
+	if(clickedCellType == CELLTYPES.emptyHidden)
+	{
+		board[clickColumn,clickRow] = CELLTYPES.emptyRevealed
+	}
 	//Game lost off cell is a mine
-	else if(clickedCellType == CELLTYPES.mine)
+	else if(clickedCellType == CELLTYPES.mineHidden)
+	{
 		gameLost = true
+	}
 }
 
 

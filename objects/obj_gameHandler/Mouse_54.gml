@@ -21,25 +21,25 @@ if((clickRow < rows) && (clickColumn < columns) && (clickRow >= 0) && (clickColu
 		show_debug_message("corresponding cell (" + string(clickColumn) + "," + string(clickRow) + ")")
 		
 		//Flag an unflagged cell
-		if(clickedCellType == CELLTYPES.hidden)
+		if(clickedCellType == CELLTYPES.emptyHidden)
 		{
-			board[clickColumn,clickRow] = CELLTYPES.hiddenFlagged
+			board[clickColumn,clickRow] = CELLTYPES.emptyFlagged
 			flags++
 		}
-		else if(clickedCellType == CELLTYPES.mine)
+		else if(clickedCellType == CELLTYPES.mineHidden)
 		{
 			board[clickColumn,clickRow] = CELLTYPES.mineFlagged
 			flags++
 		}
 		//Unflag a flagged cell
-		else if(clickedCellType == CELLTYPES.hiddenFlagged)
+		else if(clickedCellType == CELLTYPES.emptyFlagged)
 		{
-			board[clickColumn,clickRow] = CELLTYPES.hidden
+			board[clickColumn,clickRow] = CELLTYPES.emptyHidden
 			flags--
 		}
 		else if(clickedCellType == CELLTYPES.mineFlagged)
 		{
-			board[clickColumn,clickRow] = CELLTYPES.mine
+			board[clickColumn,clickRow] = CELLTYPES.mineHidden
 			flags--
 		}
 	}
