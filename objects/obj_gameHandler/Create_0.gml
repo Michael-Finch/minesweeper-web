@@ -19,11 +19,7 @@ camera_set_view_pos(view_camera[0], camOffsetX, camOffsetY);
 //Initialize an empty board
 //0 = empty hidden, 1 = empty revealed, 2 = empty flagged
 //3 = mine hidden, 4 = mine revealed, 5 = mine flagged
-for(i = 0; i < columns; ++i)
-{
-	for(j = 0; j < rows; ++j)
-	{
-		board[i,j] = CELLTYPES.emptyHidden
-		adjacentMines[i,j] = 0
-	}
-}
+ds_grid_resize(global.board, columns, rows)
+ds_grid_clear(global.board, CELLTYPES.emptyHidden)
+ds_grid_resize(global.adjacentMines, columns, rows)
+ds_grid_clear(global.adjacentMines, 0)

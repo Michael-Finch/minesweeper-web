@@ -12,6 +12,7 @@ if(gameLost == false)
 	clickRow = floor(clickY/cellSize)
 
 	show_debug_message("right click detected at (" + string(clickX) + "," + string(clickY) + ")")
+	show_debug_message("corresponding cell (" + string(clickColumn) + "," + string(clickRow) + ")")
 
 	//Check if a valid location is clicked
 	if((clickRow < rows) && (clickColumn < columns) && (clickRow >= 0) && (clickColumn >= 0))
@@ -20,29 +21,28 @@ if(gameLost == false)
 		if(gameStarted == true)
 		{
 			//Determine what was clicked and respond accordingly
-			clickedCellType = board[clickColumn,clickRow]
-			show_debug_message("corresponding cell (" + string(clickColumn) + "," + string(clickRow) + ")")
+			clickedCellType = ds_grid_get(global.board, clickColumn, clickRow)
 		
 			//Flag an unflagged cell
 			if(clickedCellType == CELLTYPES.emptyHidden)
 			{
-				board[clickColumn,clickRow] = CELLTYPES.emptyFlagged
+				ds_grid_set(global.board, clickColumn, clickRow, CELLTYPES.emptyFlagged)
 				flags++
 			}
 			else if(clickedCellType == CELLTYPES.mineHidden)
 			{
-				board[clickColumn,clickRow] = CELLTYPES.mineFlagged
+				ds_grid_set(global.board, clickColumn, clickRow, CELLTYPES.mineFlagged)
 				flags++
 			}
 			//Unflag a flagged cell
 			else if(clickedCellType == CELLTYPES.emptyFlagged)
 			{
-				board[clickColumn,clickRow] = CELLTYPES.emptyHidden
+				ds_grid_set(global.board, clickColumn, clickRow, CELLTYPES.emptyHidden)
 				flags--
 			}
 			else if(clickedCellType == CELLTYPES.mineFlagged)
 			{
-				board[clickColumn,clickRow] = CELLTYPES.mineHidden
+				ds_grid_set(global.board, clickColumn, clickRow, CELLTYPES.mineHidden)
 				flags--
 			}
 		}

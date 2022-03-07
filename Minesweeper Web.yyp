@@ -13,6 +13,7 @@
     {"id":{"name":"spr_cellFlagged","path":"sprites/spr_cellFlagged/spr_cellFlagged.yy",},"order":6,},
     {"id":{"name":"obj_buttonHard","path":"objects/obj_buttonHard/obj_buttonHard.yy",},"order":2,},
     {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},"order":1,},
+    {"id":{"name":"reveal_cell","path":"scripts/reveal_cell/reveal_cell.yy",},"order":1,},
     {"id":{"name":"scale_canvas","path":"scripts/scale_canvas/scale_canvas.yy",},"order":0,},
     {"id":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},"order":0,},
   ],

@@ -12,6 +12,7 @@ if(gameLost == false)
 	clickRow = floor(clickY/cellSize)
 
 	show_debug_message("left click detected at (" + string(clickX) + "," + string(clickY) + ")")
+	show_debug_message("corresponding cell (" + string(clickColumn) + "," + string(clickRow) + ")")
 
 	//Check if a valid location is clicked
 	if((clickRow < rows) && (clickColumn < columns) && (clickRow >= 0) && (clickColumn >= 0))
@@ -19,6 +20,7 @@ if(gameLost == false)
 		//If this is the first click, seed the board with mines
 		if(gameStarted == false)
 		{
+			show_debug_message("First click detected, seeding board")
 			minesPlaced = 0
 			while(minesPlaced < totalMines)
 			{
@@ -29,9 +31,9 @@ if(gameLost == false)
 				distanceColumn = abs(randColumn - clickColumn)
 				distanceRow = abs(randRow - clickRow)
 				//Do not place a mine within 1 tile of the initial click or on an already placed mine
-				if((distanceColumn > 1 || distanceRow > 1) && board[randColumn,randRow] != CELLTYPES.mineHidden)
+				if((distanceColumn > 1 || distanceRow > 1) && ds_grid_get(global.board, randColumn, randRow) != CELLTYPES.mineHidden)
 				{
-					board[randColumn,randRow] = CELLTYPES.mineHidden
+					ds_grid_set(global.board, randColumn, randRow, CELLTYPES.mineHidden)
 					minesPlaced++
 		
 					//Update neighboring cells' adjacent mine count
@@ -54,35 +56,35 @@ if(gameLost == false)
 		
 					//Increment valid neighbors
 					if(up)
-						adjacentMines[randColumn,randRow - 1] += 1
+						ds_grid_add(global.adjacentMines, randColumn, randRow - 1, 1)
 					if(down)
-						adjacentMines[randColumn,randRow + 1] += 1
+						ds_grid_add(global.adjacentMines, randColumn, randRow + 1, 1)
 					if(left)
-						adjacentMines[randColumn - 1,randRow] += 1
+						ds_grid_add(global.adjacentMines, randColumn - 1, randRow, 1)
 					if(right)
-						adjacentMines[randColumn + 1,randRow] += 1
+						ds_grid_add(global.adjacentMines, randColumn + 1, randRow, 1)
 					if(up && left)
-						adjacentMines[randColumn - 1,randRow - 1] += 1
+						ds_grid_add(global.adjacentMines, randColumn - 1, randRow - 1, 1)
 					if(up && right)
-						adjacentMines[randColumn + 1,randRow - 1] += 1
+						ds_grid_add(global.adjacentMines, randColumn + 1, randRow - 1, 1)
 					if(down && left)
-						adjacentMines[randColumn - 1,randRow + 1] += 1
+						ds_grid_add(global.adjacentMines, randColumn - 1, randRow + 1, 1)
 					if(down && right)
-						adjacentMines[randColumn + 1,randRow + 1] += 1
+						ds_grid_add(global.adjacentMines, randColumn + 1, randRow + 1, 1)
 				}
 			}
 			//The board has now been seeded and the game has started
 			gameStarted = true
+			show_debug_message("Seeding done, game started")
 		}
-	
+		
 		//Determine what was clicked and respond accordingly
-		clickedCellType = board[clickColumn,clickRow]
-		show_debug_message("corresponding cell (" + string(clickColumn) + "," + string(clickRow) + ")")
+		clickedCellType = ds_grid_get(global.board, clickColumn, clickRow)
 	
-		//Reveal a hidden cell
+		//Reveal a hidden cell and flood fill reveal neighbors
 		if(clickedCellType == CELLTYPES.emptyHidden)
 		{
-			board[clickColumn,clickRow] = CELLTYPES.emptyRevealed
+			reveal_cell(clickColumn,clickRow)
 		}
 		//Game lost off cell is a mine
 		else if(clickedCellType == CELLTYPES.mineHidden)
@@ -93,9 +95,9 @@ if(gameLost == false)
 			{
 				for(j = 0; j < rows; ++j)
 				{
-					if(board[i,j] == CELLTYPES.mineHidden || board[i,j] == CELLTYPES.mineFlagged)
+					if(ds_grid_get(global.board, i, j) == CELLTYPES.mineHidden || ds_grid_get(global.board, i, j) == CELLTYPES.mineFlagged)
 					{
-						board[i,j] = CELLTYPES.mineRevealed
+						ds_grid_set(global.board, i, j, CELLTYPES.mineRevealed)
 					}
 				}
 			}
